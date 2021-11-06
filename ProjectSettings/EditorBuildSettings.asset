@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Portada.unity
+    guid: 0b25135ffa21c9b4b9ea04e38c0db80e
+  - enabled: 1
+    path: Assets/Scenes/Juego.unity
+    guid: 0d40d378f5b7de744a7a41c79f9b88e2
+  - enabled: 1
+    path: Assets/Scenes/Perdida.unity
+    guid: 926a7c6639df4da49a118c0c9a37aeeb
+  - enabled: 1
+    path: Assets/Scenes/Gane.unity
+    guid: b859c0d28679e1945a7741eedda142cd
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 17d648ff368c9034e85bdce905b9b5bf
+  m_configObjects: {}
