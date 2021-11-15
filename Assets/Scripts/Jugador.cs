@@ -12,9 +12,12 @@ public class Jugador : MonoBehaviour
     private int puntaje;
     public float velocidad = 1.5f;
 
-    public float tiempoTrascurrido = 0f;
+    public float tiempoTranscurrido = 0f;
     public float tiempoLimite = 30;
     private float tiempoDeJuego;
+    public Text txt_TiempoTranscurrido;
+    public Text txt_PuntajeActual;
+    public Text txt_LimiteActual;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +25,18 @@ public class Jugador : MonoBehaviour
         rigidbody = this.GetComponent<Rigidbody>();
         posInicial = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         
-    }//fin del star
+    }//fin del start
 
     // Update is called once per frame
     void Update()
     {
+        txt_TiempoTranscurrido.text = this.tiempoTranscurrido.ToString();
+        txt_PuntajeActual.text = this.puntaje.ToString();
+        txt_LimiteActual.text = (tiempoLimite - tiempoDeJuego).ToString();
+
+
         //Contador de tiempo
-        tiempoTrascurrido += Time.deltaTime;
+        tiempoTranscurrido += Time.deltaTime;
         tiempoDeJuego += Time.deltaTime;
 
         //condicion  de perdida
@@ -69,8 +77,9 @@ public class Jugador : MonoBehaviour
 
     public void perderJuego()
     {
+        Debug.Log("Juego Finalizado");
+        //GameManager.instancia.SumarPuntaje(Convert.ToInt32(puntaje * tiempoTranscurrido * 100));
         GameManager.instancia.CambiarEscena("Perdida");
-
     }///fin del metodo
 
     public void ganarJuego()
