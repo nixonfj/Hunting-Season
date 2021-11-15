@@ -13,9 +13,13 @@ public class Jugador : MonoBehaviour
     private int puntaje;
     public float velocidad = 1.5f;
 
-    public float tiempoTrascurrido = 0f;
+    public float tiempoTranscurrido = 0f;
     public float tiempoLimite = 30;
     private float tiempoDeJuego;
+
+    public Text txt_TiempoTranscurrido;
+    public Text txt_PuntajeActual;
+    public Text txt_LimiteActual;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +31,13 @@ public class Jugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Actualizar interfaces gráficas
+        txt_TiempoTranscurrido.text = this.tiempoTranscurrido.ToString();
+        txt_PuntajeActual.text = this.puntaje.ToString();
+        txt_LimiteActual.text = (tiempoLimite - tiempoDeJuego).ToString();
+
         //Contador de tiempo
-        tiempoTrascurrido += Time.deltaTime;
+        tiempoTranscurrido += Time.deltaTime;
         tiempoDeJuego += Time.deltaTime;
 
         //condicion  de perdida
