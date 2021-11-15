@@ -6,29 +6,38 @@ using UnityEngine.UI;
 public class Jugador : MonoBehaviour
 {
     private Vector3 posInicial;
-    private Rigidbody rigidbody;
+    private Rigidbody rigidBody;
     private float velX, velY;
+    public float sensibilidadDelRaton;
 
     private int puntaje;
     public float velocidad = 1.5f;
 
-    public float tiempoTrascurrido = 0f;
+    public float tiempoTranscurrido = 0f;
     public float tiempoLimite = 30;
     private float tiempoDeJuego;
+
+    public Text txt_TiempoTranscurrido;
+    public Text txt_PuntajeActual;
+    public Text txt_LimiteActual;
 
     // Start is called before the first frame update
     void Start()
     { 
-        rigidbody = this.GetComponent<Rigidbody>();
+        rigidBody = this.GetComponent<Rigidbody>();
         posInicial = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        
     }//fin del star
 
     // Update is called once per frame
     void Update()
     {
+        // Actualizar interfaces gráficas
+        txt_TiempoTranscurrido.text = this.tiempoTranscurrido.ToString();
+        txt_PuntajeActual.text = this.puntaje.ToString();
+        txt_LimiteActual.text = (tiempoLimite - tiempoDeJuego).ToString();
+
         //Contador de tiempo
-        tiempoTrascurrido += Time.deltaTime;
+        tiempoTranscurrido += Time.deltaTime;
         tiempoDeJuego += Time.deltaTime;
 
         //condicion  de perdida
@@ -43,15 +52,51 @@ public class Jugador : MonoBehaviour
             ganarJuego();
         }
 
-        velX = Input.GetAxis("Horizontal");
-        velY = Input.GetAxis("Vertical");
-        
+        //velX = Input.GetAxis("Horizontal");
+        //velY = Input.GetAxis("Vertical");
+
+        //Adelante
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(0, 0, velocidad * Time.deltaTime);
+        }
+
+        //Izquierda
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(-velocidad * Time.deltaTime, 0, 0);
+        }
+
+        //Atrás
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(0, 0, -velocidad * Time.deltaTime);
+        }
+
+        //Derecha
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(velocidad * Time.deltaTime, 0, 0);
+        }
+
         //movimiento
         if (velX != 0 || velY != 0)
         {
-            rigidbody.velocity = (new Vector3(velX, 0, velY)) * velocidad;
+            rigidBody.velocity = (new Vector3(velX, 0, velY)) * velocidad;
         }
-    }//fin del upDate
+
+        //Mouse
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("ENTER HA SIDO PRESIONADO");
+
+            transform.position = new Vector3(posInicial.x, posInicial.y, posInicial.z);
+
+            rigidBody.velocity = Vector3.zero;
+        }
+
+        transform.Rotate(0, Input.GetAxis("Mouse X") * sensibilidadDelRaton * Time.deltaTime, 0);
+    }//fin del update
 
     public void IncrementarPuntaje(int valor)
     {
