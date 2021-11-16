@@ -10,7 +10,7 @@ public class Jugador : MonoBehaviour
     private float velX, velY;
     public float sensibilidadDelRaton;
 
-    private int puntaje;
+    public int puntaje;
     public float velocidad = 1.5f;
 
     public float tiempoTranscurrido = 0f;
@@ -47,7 +47,7 @@ public class Jugador : MonoBehaviour
         }
 
         //condiion de gane
-        if (puntaje >= 10)
+        if (puntaje >= 50)
         {
             ganarJuego();
         }
