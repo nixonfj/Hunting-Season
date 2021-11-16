@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Jugador.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CamaraMinimapa.cs" />
+    <Compile Include="Assets\Scripts\InstruccionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
