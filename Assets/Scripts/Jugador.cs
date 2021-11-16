@@ -21,6 +21,12 @@ public class Jugador : MonoBehaviour
     public Text txt_PuntajeActual;
     public Text txt_LimiteActual;
 
+    //--------------------------------
+    public GameObject sabueso;
+    public GameObject player;
+
+    bool generado = false;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -51,9 +57,6 @@ public class Jugador : MonoBehaviour
         {
             ganarJuego();
         }
-
-        //velX = Input.GetAxis("Horizontal");
-        //velY = Input.GetAxis("Vertical");
 
         //Adelante
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -96,6 +99,23 @@ public class Jugador : MonoBehaviour
         }
 
         transform.Rotate(0, Input.GetAxis("Mouse X") * sensibilidadDelRaton * Time.deltaTime, 0);
+
+        //------------------------------------------
+        if (puntaje >= 2)
+        {
+            
+            while (generado == false)
+            {
+                generado = true;
+
+                GameObject sab = (GameObject)Instantiate(sabueso);
+                Sabueso s = sab.GetComponent<Sabueso>();
+                s.jugador = gameObject;
+       
+            }
+            
+        }
+
     }//fin del update
 
     public void IncrementarPuntaje(int valor)

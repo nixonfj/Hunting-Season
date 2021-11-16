@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Sabueso : MonoBehaviour
 {
-    public GameObject Jugador;
+    public GameObject jugador;
 
-    public Jugador jugador;
     public GameObject sabueso;
 
     public float minZ, maxZ;
@@ -19,19 +18,14 @@ public class Sabueso : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ReposicionarSabueso();
+        gameObject.SetActive(true);
+
     }//fin del start
 
     // Update is called once per frame
     void Update()
     {
-        /*puntajeJugador = jugador.puntaje;
-
-        if (puntajeJugador >= 10 && puntajeJugador <= 11)
-        {
-            generarSabueso();
-
-        } */
 
         seguirJugador();
         
@@ -47,9 +41,9 @@ public class Sabueso : MonoBehaviour
 
     public void seguirJugador()
     {
-        if (Vector3.Distance(transform.position, Jugador.transform.position) < 20)
+        if (Vector3.Distance(transform.position, jugador.transform.position) < 20)
         {
-            var pos = Jugador.transform.position - transform.position;
+            var pos = jugador.transform.position - transform.position;
             pos.y = 0;
             var rotation = Quaternion.LookRotation(pos);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
