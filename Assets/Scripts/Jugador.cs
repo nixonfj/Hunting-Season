@@ -13,7 +13,7 @@ public class Jugador : MonoBehaviour
     public int puntaje;
     public float velocidad = 1.5f;
 
-    public float tiempoTranscurrido = 0f;
+    public float tiempoTranscurrido = 0;
     public float tiempoLimite = 30;
     private float tiempoDeJuego;
 
@@ -24,6 +24,8 @@ public class Jugador : MonoBehaviour
     //--------------------------------
     public GameObject sabueso;
     public GameObject player;
+
+    public float daño_sabueso;
 
     bool generado = false;
 
@@ -101,34 +103,43 @@ public class Jugador : MonoBehaviour
         transform.Rotate(0, Input.GetAxis("Mouse X") * sensibilidadDelRaton * Time.deltaTime, 0);
 
         //------------------------------------------
-        if (puntaje >= 2)
+        if (puntaje > 2)
         {
-            
-            while (generado == false)
+            generarSabueso();
+            /*if (puntaje % 2 == 0)
             {
-                generado = true;
+                generado = false;
+            }*/
 
-                GameObject sab = (GameObject)Instantiate(sabueso);
-                Sabueso s = sab.GetComponent<Sabueso>();
-                s.jugador = gameObject;
-       
-            }
-            
         }
 
     }//fin del update
 
+    public void generarSabueso()
+    {
+        while (generado == false)
+        {
+            generado = true;
+
+            GameObject sab = (GameObject)Instantiate(sabueso);
+            Sabueso s = sab.GetComponent<Sabueso>();
+            s.jugador = gameObject;
+            s.tiempo = daño_sabueso;
+        }
+
+    }//fin del metodo
+
     public void IncrementarPuntaje(int valor)
     {
         puntaje += valor;
-        Debug.Log("Puntuacion:" + puntaje.ToString());
+       // Debug.Log("Puntuacion:" + puntaje.ToString());
 
     }//fin del metodo
 
     public void ModificarTiempo(float valor)
     {
         tiempoDeJuego -= valor;
-        Debug.Log("Tiempo restablecido");
+        //Debug.Log("Tiempo restablecido");
 
     }//fin del modificar tiempo
 
