@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InstruccionHelper.cs" />
     <Compile Include="Assets\Scripts\CamaraMinimapa.cs" />
+    <Compile Include="Assets\Scripts\daño_jugador.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

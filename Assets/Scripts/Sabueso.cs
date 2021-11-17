@@ -26,9 +26,8 @@ public class Sabueso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         seguirJugador();
-        
+
     }//fin del update
 
     public void generarSabueso()
@@ -57,5 +56,6 @@ public class Sabueso : MonoBehaviour
         transform.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
 
     }//fin del metodo reposicionar
+
 
 }//fin de la clase
