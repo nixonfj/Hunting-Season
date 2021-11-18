@@ -113,12 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
-  sabueso: {fileID: 1775405082900913028}
-  minZ: -19
-  maxZ: 19
-  minX: -19
-  maxX: 19
-  tiempo: 0
+  tiempo: -10
   puntajeJugador: 0
 --- !u!54 &1775405082900913051
 Rigidbody:
