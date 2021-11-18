@@ -115,6 +115,10 @@ MonoBehaviour:
   jugador: {fileID: 0}
   tiempo: -10
   puntajeJugador: 0
+  minZ: -19
+  maxZ: 19
+  minX: -19
+  maxX: 19
 --- !u!54 &1775405082900913051
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ public class Sabueso : MonoBehaviour
 
     public int puntajeJugador = 0;
 
+    public float minZ, maxZ;
+    public float minX, maxX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,7 @@ public class Sabueso : MonoBehaviour
 
     protected void ReposicionarSabueso()
     {
-        transform.position = jugador.transform.position - Vector3.forward * 15f;
+        transform.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
 
     }//fin del metodo reposicionar
 
