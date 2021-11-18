@@ -23,11 +23,12 @@ public class Jugador : MonoBehaviour
 
     //--------------------------------
     public GameObject sabueso;
-    public GameObject player;
+    public GameObject cazador;
 
     public float daño_sabueso;
 
-    bool generado = false;
+    bool sabueso_generado = false;
+    bool cazador_generado = false;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,7 @@ public class Jugador : MonoBehaviour
         }
 
         //condiion de gane
-        if (puntaje >= 50)
+        if (puntaje >= 20)
         {
             ganarJuego();
         }
@@ -103,23 +104,24 @@ public class Jugador : MonoBehaviour
         transform.Rotate(0, Input.GetAxis("Mouse X") * sensibilidadDelRaton * Time.deltaTime, 0);
 
         //------------------------------------------
-        if (puntaje > 2)
+        if (puntaje > 9)
         {
             generarSabueso();
-            /*if (puntaje % 2 == 0)
-            {
-                generado = false;
-            }*/
 
+        }
+        
+        if (puntaje >= 15)
+        {
+            desplegarCazador();
         }
 
     }//fin del update
 
     public void generarSabueso()
     {
-        while (generado == false)
+        while (sabueso_generado == false)
         {
-            generado = true;
+            sabueso_generado = true;
 
             GameObject sab = (GameObject)Instantiate(sabueso);
             Sabueso s = sab.GetComponent<Sabueso>();
@@ -129,17 +131,28 @@ public class Jugador : MonoBehaviour
 
     }//fin del metodo
 
+    public void desplegarCazador()
+    {
+        if(cazador_generado == false)
+        {
+            cazador_generado = true;
+
+            GameObject h = (GameObject)Instantiate(cazador);
+            hunter c = h.GetComponent<hunter>();
+            c.jugador = gameObject;
+        }
+
+    }//fin del metodo
+
     public void IncrementarPuntaje(int valor)
     {
         puntaje += valor;
-       // Debug.Log("Puntuacion:" + puntaje.ToString());
 
     }//fin del metodo
 
     public void ModificarTiempo(float valor)
     {
         tiempoDeJuego -= valor;
-        //Debug.Log("Tiempo restablecido");
 
     }//fin del modificar tiempo
 

@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\creditoHelper.cs" />
     <Compile Include="Assets\Scripts\portadaHelper.cs" />
     <Compile Include="Assets\Scripts\objetivoTiempo.cs" />
+    <Compile Include="Assets\Scripts\daño_jugador.cs" />
     <Compile Include="Assets\Scripts\objeto.cs" />
     <Compile Include="Assets\Scripts\perderHelper.cs" />
     <Compile Include="Assets\Scripts\ganeHelper.cs" />
@@ -64,7 +65,8 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InstruccionHelper.cs" />
     <Compile Include="Assets\Scripts\CamaraMinimapa.cs" />
-    <Compile Include="Assets\Scripts\daño_jugador.cs" />
+    <Compile Include="Assets\Scripts\hunter.cs" />
+    <Compile Include="Assets\Scripts\bala.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

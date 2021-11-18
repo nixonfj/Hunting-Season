@@ -6,14 +6,12 @@ public class Sabueso : MonoBehaviour
 {
     public GameObject jugador;
 
-    public GameObject sabueso;
-
-    public float minZ, maxZ;
-    public float minX, maxX;
-
     public float tiempo;
 
     public int puntajeJugador = 0;
+
+    public float minZ, maxZ;
+    public float minX, maxX;
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +28,9 @@ public class Sabueso : MonoBehaviour
 
     }//fin del update
 
-    public void generarSabueso()
-    {
-        GameObject.Instantiate(sabueso);
-        var Sabueso = sabueso.GetComponent<Sabueso>();
-        Sabueso.ReposicionarSabueso();
-
-    }//fin del metodo generar sabueso
-
     public void seguirJugador()
     {
-        if (Vector3.Distance(transform.position, jugador.transform.position) < 20)
+        if (Vector3.Distance(transform.position, jugador.transform.position) < 30)
         {
             var pos = jugador.transform.position - transform.position;
             pos.y = 0;
