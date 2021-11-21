@@ -84,7 +84,7 @@ public class hunter : MonoBehaviour
 
     public void ReposicionarCazador()
     {
-        transform.position = new Vector3(Random.Range(minX, maxX), 1, Random.Range(minZ, maxZ));
+        transform.position = new Vector3(Random.Range(minX, maxX), 1.4f, Random.Range(minZ, maxZ));
 
     }//fin del metodo reposicionar
 
