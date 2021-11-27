@@ -9,12 +9,16 @@ public class bala : MonoBehaviour
     public GameObject player;
 
     public float tiempo;
+    public Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
         GenerarBala();
         gameObject.SetActive(true);
+
+        pos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        transform.LookAt(player.transform.position);
 
     }//fin del start
 
@@ -40,11 +44,7 @@ public class bala : MonoBehaviour
         if (Vector3.Distance(hunter.transform.position, player.transform.position) < 10)
         {
 
-                var pos = player.transform.position - transform.position;
-                var rotation = Quaternion.LookRotation(pos);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
-                transform.Translate(Vector3.forward * 15 * Time.deltaTime);
-
+            transform.Translate(Vector3.forward * 20 * Time.deltaTime);
         }
         else
         {

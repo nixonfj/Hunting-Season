@@ -111,3 +111,4 @@ MonoBehaviour:
   hunter: {fileID: 2561653361059011927, guid: a3c87ff8fe57de946970dfe8b14a274e, type: 3}
   player: {fileID: 6996416122781072984, guid: c5cd946d8e5464f48be552a24ffe6728, type: 3}
   tiempo: -10
+  pos: {x: 0, y: 0, z: 0}
